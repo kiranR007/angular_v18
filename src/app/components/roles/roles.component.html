@@ -1,0 +1,55 @@
+<!-- <div class="row">
+    <div class="col-3">{{firstName}}</div>
+    <div class="col-3">{{angularversion}}</div>
+    <div class="col-3">{{Version}}</div>
+    <div class="col-3">{{selectedState}}</div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <input type="text" [value]="firstName" class="form-control"/>
+    </div>
+    <div class="col-3">
+        <input type="text" [(ngModel)]="firstName"/>
+    </div>
+
+    <div class="col-3">
+        <input [type]="inputType"/>
+    </div>
+    <div class="col-3">
+        <select [(ngModel)]="selectedState">
+            <option value="MH">MH</option>
+            <option value="GOA">GOA</option>
+            <option value="MP">MP</option>
+        </select>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <button class="btn btn-success" (click)="showWelcomeAlert()">click here</button>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-success" (click)="showMessage('welcome react')">click here1</button>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-success" (click)="showMessage('welcome pg')">click here for pg</button>
+    </div>
+</div>
+{{roleList}}
+
+
+
+ -->
+
+ <div class="row">
+    <div class="col-4">
+        <ul>
+            <li *ngFor="let item of roleList">{{item.role}}</li>
+        </ul>
+    </div>
+    <div class="col-4">
+        <select>
+            <option *ngFor="let row of roleList" [value]="row.roleId">{{row.role}}</option>
+        </select>
+    </div>
+ </div>
