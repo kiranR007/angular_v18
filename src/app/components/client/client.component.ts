@@ -1,13 +1,15 @@
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule, DatePipe } from '@angular/common';
 import { Component,inject,OnInit } from '@angular/core';
 import { Client } from '../../models/class/Client';
 import { FormsModule } from '@angular/forms';
 import { ClientService } from '../../service/client.service';
 import { ApiResponseModel } from '../../models/class/interface/role';
+import { Observable } from 'rxjs';
+import { AlertComponent } from "../../reusableComponents/alert/alert.component";
 
 @Component({
   selector: 'app-client',
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule, DatePipe, AsyncPipe, AlertComponent],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
@@ -16,8 +18,13 @@ export class ClientComponent implements OnInit {
   clientObj:Client = new Client();
   clientList:Client[] = [];
   clientService = inject(ClientService)
+  userList$ :Observable<any> = new Observable<any>
+
+  currentdate:Date = new Date();
+
   ngOnInit(): void {
     this.loadClient();
+    this.userList$ = this.clientService.getAllUser();
 
   }
 

@@ -1,9 +1,18 @@
+<!-- {{clientObj|json}}
 
+<ul>
+    @for (item of userList$|async; track $index){
+        <li>{{item.username}}</li>
+
+    }
+</ul> -->
+
+<app-alert [alertType]="'success'" [alertMessage]="'Hi from client page'"></app-alert>
 <div class="row">
     <div class="col-8">
         <div class="card">
             <div class="card-header bg-success">
-                Client List
+                Client List - {{currentdate | date:"dd-MMM-yyyy"}}
             </div>
             <div class="card-body">
                 <div class="row">
@@ -112,9 +121,7 @@
                                 Client"}}</button>
                         </div>
                     </div>
-
                 </form>
-                
             </div>
         </div>
     </div>
