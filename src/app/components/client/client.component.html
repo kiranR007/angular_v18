@@ -1,13 +1,13 @@
-<!-- {{clientObj|json}}
+{{clientObj|json}}
 
 <ul>
     @for (item of userList$|async; track $index){
         <li>{{item.username}}</li>
 
     }
-</ul> -->
+</ul>
 
-<app-alert [alertType]="'success'" [alertMessage]="'Hi from client page'"></app-alert>
+<app-alert [alertType]="'Success'" [alertMessage]="'Hi from client page'"></app-alert>
 <div class="row">
     <div class="col-8">
         <div class="card">
@@ -114,11 +114,13 @@
                     </div>
                     <div class="row pt-2">
                         <div class="col-6 text-center">
+
                             <button class="btn btn-secondary">Reset</button>
                         </div>
                         <div class="col-6 text-center">
-                            <button class="btn btn-success" [disabled]="!form.valid" (click)="OnsaveClient()">{{clientObj.clientId!=0?"Update Client":"Save
-                                Client"}}</button>
+                            <app-my-button (OnBtnClick)="OnsaveClient($event)" [btnClass]="'btn btn-success'" [btnText]="clientObj.clientId!=0?'Update Client':'Save Client'"></app-my-button>
+                            <!-- <button class="btn btn-success" [disabled]="!form.valid" (click)="OnsaveClient()">{{clientObj.clientId!=0?"Update Client":"Save
+                                Client"}}</button> -->
                         </div>
                     </div>
                 </form>

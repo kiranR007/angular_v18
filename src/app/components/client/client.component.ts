@@ -6,10 +6,11 @@ import { ClientService } from '../../service/client.service';
 import { ApiResponseModel } from '../../models/class/interface/role';
 import { Observable } from 'rxjs';
 import { AlertComponent } from "../../reusableComponents/alert/alert.component";
+import { MyButtonComponent } from "../../reusableComponents/my-button/my-button.component";
 
 @Component({
   selector: 'app-client',
-  imports: [CommonModule, FormsModule, DatePipe, AsyncPipe, AlertComponent],
+  imports: [CommonModule, FormsModule, DatePipe, AsyncPipe, AlertComponent, MyButtonComponent],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
@@ -33,7 +34,7 @@ export class ClientComponent implements OnInit {
       this.clientList = res.data;
     })
   }
-  OnsaveClient(){
+  OnsaveClient(data:string){
     debugger;
     this.clientService.addUpdate(this.clientObj).subscribe((res:ApiResponseModel)=>{
       if (res.result){
